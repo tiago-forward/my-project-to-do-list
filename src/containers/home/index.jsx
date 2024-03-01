@@ -1,12 +1,15 @@
 import styled from "styled-components"
 import { SearchForm } from "../../components/search-form"
+import TaskContainer from "../../components/tasks/container"
 
 function Home() {
     return (
         <>
             <Main>
-                <Titulo>Lista de Tarefas</Titulo>
+                <TituloPrincipal>Lista de Tarefas</TituloPrincipal>
                 <SearchForm />
+                <TaskContainer />
+                <TaskContainer />
             </Main>
         </>
     )
@@ -25,7 +28,7 @@ const Main = styled.main`
     }
 
 `
-const Titulo = styled.h1`
+const TituloPrincipal = styled.h1`
     text-align: center;
     padding-bottom: 10px;
     text-transform: uppercase;
