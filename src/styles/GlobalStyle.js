@@ -14,6 +14,11 @@ export const GlobalStyle = createGlobalStyle`
     -webkit-text-size-adjust: 100%;
   }
 
+  body {
+    background-color: beige;
+    padding: 10px 10px;
+  }
+
   li {
     list-style-type: none;
   }
