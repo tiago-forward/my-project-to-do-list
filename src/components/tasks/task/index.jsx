@@ -1,10 +1,10 @@
 import styled from "styled-components"
 
-function TaskCard() {
+function TaskCard({ data }) {
     return (
         <TaskCardContainer>
             <TaskTitle>
-                <Title>Estudar Inglês</Title>
+                <Title>{data.title}</Title>
                 <ButtonStar><img src="https://cdn-icons-png.flaticon.com/128/616/616489.png" width={20} alt="Icone de estrela" /></ButtonStar>
             </TaskTitle>
             <Categories>

@@ -1,13 +1,18 @@
-import styled from "styled-components"
-import TaskCard from "../task"
+import styled from "styled-components";
+import TaskCard from "../task";
+import TaskData from "../../../data";
 
 function TaskContainer() {
+    const [listTask] = TaskData();
+
     return (
         <Container>
             <Titulo>Titulo do container</Titulo>
-            <TaskCard />
+            {listTask.map(data => (
+                <TaskCard key={data.id} data={data} />
+            ))}
         </Container>
-    )
+    );
 }
 
 const Container = styled.div`
