@@ -16,7 +16,7 @@ function Home() {
             <Main>
                 <TituloPrincipal>Lista de Tarefas</TituloPrincipal>
                 <SearchForm listTask={listTask} setListTask={setListTask} />
-                <TaskContainer titleContainer={titleContainer} listTask={listTask} />
+                <TaskContainer titleContainer={titleContainer} listTask={listTask} setListTask={setListTask} />
             </Main>
         </>
     )

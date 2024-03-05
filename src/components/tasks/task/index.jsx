@@ -1,10 +1,16 @@
 import styled from "styled-components"
 
-function TaskCard({ data }) {
+function TaskCard({ task, listTask, setListTask }) {
+
+    const deleteTask = () => {
+        const newListTask = listTask.filter(item => item.id !== task.id)
+        setListTask(newListTask)
+    }
+
     return (
         <TaskCardContainer>
             <TaskTitle>
-                <Title>{data.title}</Title>
+                <Title>{task.title}</Title>
                 <ButtonStar><img src="https://cdn-icons-png.flaticon.com/128/616/616489.png" width={20} alt="Icone de estrela" /></ButtonStar>
             </TaskTitle>
             <Categories>
@@ -13,7 +19,7 @@ function TaskCard({ data }) {
             </Categories>
             <Buttons>
                 <Button>Renomear</Button>
-                <Button>Excluir</Button>
+                <Button onClick={deleteTask}>Excluir</Button>
             </Buttons>
         </TaskCardContainer>
     )

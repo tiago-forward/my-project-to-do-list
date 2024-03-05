@@ -1,13 +1,13 @@
 import styled from "styled-components";
 import TaskCard from "../task";
 
-function TaskContainer({titleContainer, listTask}) {
+function TaskContainer({titleContainer, listTask, setListTask}) {
 
     return (
         <Container>
             <Titulo>{titleContainer}</Titulo>
-            {listTask.map(data => (
-                <TaskCard key={data.id} data={data} />
+            {listTask.map(task => (
+                <TaskCard key={task.id} task={task} listTask={listTask} setListTask={setListTask} />
             ))}
         </Container>
     );
