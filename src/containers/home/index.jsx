@@ -1,7 +1,7 @@
 import styled from "styled-components"
 import { SearchForm } from "../../components/search-form"
 import TaskContainer from "../../components/tasks/container"
-import useTaskData from "../../data";
+import useTaskData from "../../hooks/useTaskData"
 
 function Home() {
     const [listTask, setListTask] = useTaskData()

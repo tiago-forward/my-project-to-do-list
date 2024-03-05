@@ -3,8 +3,7 @@ import styled from "styled-components"
 function TaskCard({ task, listTask, setListTask }) {
 
     const deleteTask = () => {
-        const newListTask = listTask.filter(item => item.id !== task.id)
-        setListTask(newListTask)
+        setListTask(listTask.filter(item => item.id !== task.id))
     }
 
     return (
@@ -18,7 +17,7 @@ function TaskCard({ task, listTask, setListTask }) {
                 <Span>Estudos</Span>
             </Categories>
             <Buttons>
-                <Button>Renomear</Button>
+                {/* <Button>Renomear</Button> */}
                 <Button onClick={deleteTask}>Excluir</Button>
             </Buttons>
         </TaskCardContainer>
@@ -43,7 +42,7 @@ const TaskTitle = styled.div`
 const Title = styled.h3`
     color: var(--java-950);
     font-weight: 500;
-    font-weight: 400;
+    text-transform: capitalize;
 `
 
 const Categories = styled.div`

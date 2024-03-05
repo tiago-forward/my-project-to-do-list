@@ -6,6 +6,17 @@ export function SearchForm({listTask, setListTask}) {
     const [task, setTask] = useState("")
     const inputAddTask = useRef(null)
 
+
+    const [inputs, setInputs] = useState({})
+
+    const handleChange = (event) => {
+        event.preventDefault()
+        const name = event.target.name
+        const value = event.target.value
+        setInputs(values => ({...values, [name]: value}))
+    }
+
+    
     const addTask = (event) => {
         event.preventDefault()
         // if(!task) return alert('Campo vazio')
@@ -24,12 +35,12 @@ export function SearchForm({listTask, setListTask}) {
     return (
         <Form>
             <DivSearch>
-                <Input type="search" name="" id="" placeholder="Localizar tarefa" />
-                <Button><img src="../../public/search.svg" alt="Icone de localizar tarefa" width="15px" height="10px" /></Button>
+                <Input type="search" name="" id="" placeholder="Localizar tarefa"  onChange={(event) => handleChange(event)} />
+                <Button><img src="../../public/search.svg" alt="Icone de localizar tarefa" width="25px" height="10px" /></Button>
             </DivSearch>
             <DivAddTask>
                 <Label htmlFor="task">Adicionar tarefa:</Label>
-                <Input type="text" name="task" id="task" placeholder="Escreva uma nova tarefa" onChange={(e) => setTask(e.target.value)} ref={inputAddTask} />
+                <Input type="text" name="task" id="task" placeholder="Escreva uma nova tarefa" ref={inputAddTask} />
                 <Button onClick={addTask}><img src="../../public/clipboard-plus.svg" width="15px" height="10px" alt="Icone de adicionar tarefa" /></Button>
             </DivAddTask>
             {/* <div>
