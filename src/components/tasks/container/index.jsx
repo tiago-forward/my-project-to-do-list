@@ -1,13 +1,11 @@
 import styled from "styled-components";
 import TaskCard from "../task";
-import TaskData from "../../../data";
 
-function TaskContainer() {
-    const [listTask] = TaskData();
+function TaskContainer({titleContainer, listTask}) {
 
     return (
         <Container>
-            <Titulo>Titulo do container</Titulo>
+            <Titulo>{titleContainer}</Titulo>
             {listTask.map(data => (
                 <TaskCard key={data.id} data={data} />
             ))}

@@ -1,14 +1,22 @@
 import styled from "styled-components"
 import { SearchForm } from "../../components/search-form"
 import TaskContainer from "../../components/tasks/container"
+import useTaskData from "../../data";
 
 function Home() {
+    const [listTask, setListTask] = useTaskData()
+    let titleContainer = 'Novas Tarefas'
+
+    if (!listTask.length) {
+        titleContainer = 'Nenhuma tarefa adicionada!'
+    }
+
     return (
         <>
             <Main>
                 <TituloPrincipal>Lista de Tarefas</TituloPrincipal>
-                <SearchForm />
-                <TaskContainer />
+                <SearchForm listTask={listTask} setListTask={setListTask} />
+                <TaskContainer titleContainer={titleContainer} listTask={listTask} />
             </Main>
         </>
     )

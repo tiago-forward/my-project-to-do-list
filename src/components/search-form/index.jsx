@@ -1,10 +1,8 @@
 import { useRef, useState } from "react"
-import TaskData from "../../data"
 
-export function SearchForm() {
+export function SearchForm({listTask, setListTask}) {
 
     const [task, setTask] = useState("")
-    const [listTask, setListTask] = TaskData()
 
     const addTask = () => {
         if(!task) return alert('Campo vazio')
@@ -15,9 +13,7 @@ export function SearchForm() {
         }
 
         setListTask([...listTask, newTask])
-        console.log(newTask)
     }
-
 
     return (
         <>

@@ -1,22 +1,10 @@
 import { useState } from "react"
 
-const TaskData = () => {
+const useTaskData = () => {
 
-    let [listTask, setListTask] = useState([
-        {
-            id: 1,
-            title: 'Estudar Ia',
-            isCompleted: false
-        },
-        {
-            id: 2,
-            title: 'Estudar Inglês',
-            isCompleted: false
-        }
-    ])
-    console.log(listTask)
+    let [listTask, setListTask] = useState([])
 
     return [listTask, setListTask]
 }
 
-export default TaskData
+export default useTaskData
