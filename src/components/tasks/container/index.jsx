@@ -1,13 +1,21 @@
 import styled from "styled-components";
 import TaskCard from "../task";
 
-function TaskContainer({titleContainer, listTask, setListTask}) {
+function TaskContainer({titleContainer, listTask, setListTask, listFavoriteTask, setListFavoriteTask}) {
+    
+    const tasksToShow = titleContainer === "Favoritos" ? listFavoriteTask : listTask;
 
     return (
         <Container>
             <Titulo>{titleContainer}</Titulo>
-            {listTask.map(task => (
-                <TaskCard key={task.id} task={task} listTask={listTask} setListTask={setListTask} />
+            {tasksToShow.map(task => (
+                <TaskCard 
+                    key={task.id} 
+                    task={task} 
+                    listTask={listTask} 
+                    setListTask={setListTask} 
+                    listFavoriteTask={listFavoriteTask} 
+                    setListFavoriteTask={setListFavoriteTask} />
             ))}
         </Container>
     );

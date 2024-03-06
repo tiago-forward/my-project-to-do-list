@@ -1,25 +1,18 @@
 import styled from "styled-components";
 import { useRef, useState } from "react"
 
-export function SearchForm({listTask, setListTask}) {
+function SearchForm({listTask, setListTask, listFavoriteTask , setListFavoriteTask}) {
 
     const [task, setTask] = useState("")
+    const [searchTerm, setSearchTerm] = useState("")
     const inputAddTask = useRef(null)
 
-
-    const [inputs, setInputs] = useState({})
-
-    const handleChange = (event) => {
-        event.preventDefault()
-        const name = event.target.name
-        const value = event.target.value
-        setInputs(values => ({...values, [name]: value}))
+    const handleInputChange = (event) => {
+        setSearchTerm(event.target.value);
     }
-
     
     const addTask = (event) => {
         event.preventDefault()
-        // if(!task) return alert('Campo vazio')
         if (inputAddTask.current.value === '') return alert('Escreva uma tarefa!')
         const newTask = {
             id: Math.random(),
@@ -35,13 +28,28 @@ export function SearchForm({listTask, setListTask}) {
     return (
         <Form>
             <DivSearch>
-                <Input type="search" name="" id="" placeholder="Localizar tarefa"  onChange={(event) => handleChange(event)} />
-                <Button><img src="../../public/search.svg" alt="Icone de localizar tarefa" width="25px" height="10px" /></Button>
+                <Input 
+                    type="search" 
+                    name="searchTask" 
+                    id="searchTask" 
+                    placeholder="Localizar tarefa" 
+                    onChange={(event) => handleInputChange(event)} />
+                <Button>
+                    <img src="../../public/search.svg" alt="Icone de localizar tarefa" width="25px" height="10px" />
+                </Button>
             </DivSearch>
             <DivAddTask>
                 <Label htmlFor="task">Adicionar tarefa:</Label>
-                <Input type="text" name="task" id="task" placeholder="Escreva uma nova tarefa" ref={inputAddTask} />
-                <Button onClick={addTask}><img src="../../public/clipboard-plus.svg" width="15px" height="10px" alt="Icone de adicionar tarefa" /></Button>
+                <Input 
+                    type="text" 
+                    name="task" 
+                    id="task" 
+                    placeholder="Escreva uma nova tarefa" 
+                    ref={inputAddTask} />
+                <Button 
+                    onClick={addTask}>
+                    <img src="../../public/clipboard-plus.svg" width="15px" height="10px" alt="Icone de adicionar tarefa" />
+                </Button>
             </DivAddTask>
             {/* <div>
                 <input type="button" value="Marcar como prioridade" />
@@ -106,3 +114,5 @@ const Label = styled.label`
     padding: 5px;
     font-size: 14px;
 `
+
+export default SearchForm

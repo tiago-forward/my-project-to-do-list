@@ -1,21 +1,38 @@
 import styled from "styled-components"
+// import { deleteTask } from "../../../functions"
 
-function TaskCard({ task, listTask, setListTask }) {
+function TaskCard({ task, listTask, setListTask, listFavoriteTask, setListFavoriteTask }) {
 
     const deleteTask = () => {
-        setListTask(listTask.filter(item => item.id !== task.id))
+        if (listFavoriteTask.some(item => item.id === task.id)){
+            setListFavoriteTask(listFavoriteTask.filter(item => item.id !== task.id))
+        } else {
+            setListTask(listTask.filter(item => item.id !== task.id))
+        }
+        console.log(listTask)
+    }
+
+    const addFavoriteTask = () => {
+        if (listFavoriteTask.some(item => item.id === task.id)){
+            return null
+        } else {
+            setListFavoriteTask([...listFavoriteTask, task])
+            setListTask(listTask.filter(item => item.id !== task.id))
+        }
     }
 
     return (
         <TaskCardContainer>
             <TaskTitle>
                 <Title>{task.title}</Title>
-                <ButtonStar><img src="https://cdn-icons-png.flaticon.com/128/616/616489.png" width={20} alt="Icone de estrela" /></ButtonStar>
+                <ButtonStar 
+                onClick={addFavoriteTask} >
+                <img src="https://cdn-icons-png.flaticon.com/128/616/616489.png" width={20} alt="Icone de estrela" /></ButtonStar>
             </TaskTitle>
-            <Categories>
+            {/* <Categories>
                 <Span>Curso</Span>
                 <Span>Estudos</Span>
-            </Categories>
+            </Categories> */}
             <Buttons>
                 {/* <Button>Renomear</Button> */}
                 <Button onClick={deleteTask}>Excluir</Button>
@@ -72,7 +89,6 @@ const Button = styled.button`
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     border-radius: 3px;
-    color: var(--java-950);
     box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
     &:hover {
         background-color: var(--java-50);
@@ -84,7 +100,7 @@ const Button = styled.button`
 
 const ButtonStar = styled.button`
     cursor: pointer;
-        border: 2px solid var(--java-500);
+    border: 2px solid var(--java-500);
     padding: 2px;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
