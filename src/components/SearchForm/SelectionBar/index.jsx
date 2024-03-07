@@ -1,11 +1,13 @@
 // import styled from "styled-components";
+import { useState } from "react";
 import Select from "react-select";
 import makeAnimated from "react-select/animated"
 // import colors from "react-select";
 
 const animatedComponents = makeAnimated();
 
-function SelectionBar() {
+function SelectionBar(setSelectedOptions) {
+
 
     const options = [
         { value: 'curso', label: 'Curso' },
@@ -21,12 +23,14 @@ function SelectionBar() {
     return(
         <div style={{ marginTop: 15, width: 350 }}>
             <Select
+                onChange={(item) => setSelectedOptions(item)}
                 styles={{
                     placeholder: (baseStyles, State) => ({
                         ...baseStyles,
                         fontSize: 14,
                     }),
-                    menuList: () => ({
+                    menuList: (baseStyles) => ({
+                        ...baseStyles,
                         fontSize: 14,
                         backgroundColor: "var(--java-50)"
                     })
