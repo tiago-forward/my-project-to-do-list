@@ -58,3 +58,44 @@ export const Label = styled.label`
     align-items: center;
     padding-left: 10px;
 `
+
+export const DivSelector = styled.div`
+    display: flex;
+    align-items: center;
+    gap: 10px;
+`
+
+export const InputFavorite = styled.input`
+    display: none;
+`
+
+export const LabelFavorite = styled.label`
+    position: relative;
+    background-color: var(--java-50);
+    border-radius: 4px;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    padding-left: 30px;
+    font-size: 14px;
+    margin-top: 15px;
+    height: 38px;
+    cursor: pointer;
+
+    &&::before {
+        position: absolute;
+        content: "";
+        height: 15px;
+        width: 15px;
+        border: 1px solid var(--java-600);
+        border-radius: 50%;
+        left: 5px;
+        background-image: url('../../src/assets/estrela.png');
+        background-repeat: no-repeat;
+    }
+
+    ${InputFavorite}:checked + &::before {
+        background-color: var(--java-600);
+        border: 1px solid var(--java-900);
+    }
+`
