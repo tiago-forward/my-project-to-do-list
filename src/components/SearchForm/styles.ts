@@ -19,9 +19,8 @@ export const DivSearch = styled.div`
 
 export const Input = styled.input`
     border: none;
-    
     background-color: transparent;
-    padding: 5px;
+    padding: 10px;
     width: 100%;
 `
 
@@ -54,6 +53,8 @@ export const DivAddTask = styled.div`
 
 export const Label = styled.label`
     width: 195px;
-    padding: 5px;
     font-size: 14px;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
 `

@@ -1,5 +1,6 @@
 import { Form, DivSearch, Input, Button, DivAddTask, Label } from "./styles";
 import { useRef, useState } from "react"
+import SelectionBar from "./SelectionBar";
 
 function SearchForm({listTask, setListTask, listFavoriteTask , setListFavoriteTask}) {
 
@@ -54,9 +55,8 @@ function SearchForm({listTask, setListTask, listFavoriteTask , setListFavoriteTa
                     <img src="../../public/clipboard-plus.svg" width="15px" height="10px" alt="Icone de adicionar tarefa" />
                 </Button>
             </DivAddTask>
-            {/* <div>
-                <input type="button" value="Marcar como prioridade" />
-            </div> */}
+                <SelectionBar />
+            {/* <input type="button" value="Marcar como prioridade" /> */}
         </Form>
     )
 }
