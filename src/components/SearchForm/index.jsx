@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import { Form, DivSearch, Input, Button, DivAddTask, Label } from "./styles";
 import { useRef, useState } from "react"
 
 function SearchForm({listTask, setListTask, listFavoriteTask , setListFavoriteTask}) {
@@ -12,7 +12,6 @@ function SearchForm({listTask, setListTask, listFavoriteTask , setListFavoriteTa
     }
     
     const addTask = (event) => {
-        event.preventDefault()
         if (inputAddTask.current.value === '') return alert('Escreva uma tarefa!')
         const newTask = {
             id: Math.random(),
@@ -25,8 +24,12 @@ function SearchForm({listTask, setListTask, listFavoriteTask , setListFavoriteTa
         inputAddTask.current.value = ''
     }
 
+    const handleSubmit = (event) => {
+        event.preventDefault()
+    }
+
     return (
-        <Form>
+        <Form onSubmit={handleSubmit}>
             <DivSearch>
                 <Input 
                     type="search" 
@@ -57,62 +60,5 @@ function SearchForm({listTask, setListTask, listFavoriteTask , setListFavoriteTa
         </Form>
     )
 }
-
-const Form = styled.form`
-    display: flex;
-    flex-direction: column;
-`
-
-const DivSearch = styled.div`
-    display: flex;
-    justify-content: space-between;
-    background-color: var(--java-50);
-    border-radius: 5px;
-    margin-bottom: 15px;
-
-    @media screen and (min-width: 720px) {
-        margin-left: 400px;
-    }
-`
-
-const Input = styled.input`
-    border: none;
-    background-color: transparent;
-    padding: 5px;
-    width: 100%;
-`
-
-const Button = styled.button`
-    cursor: pointer;
-    border: none;
-    padding: 2px;
-    margin-left: 5px;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    border-radius: 3px;
-    background-color: var(--java-50);
-    &:hover {
-        background-color: var(--java-50);
-    }
-    &:active {
-        background-color: var(--java-100);
-    }
-`
-
-const DivAddTask = styled.div`
-    display: flex;
-    background-color: var(--java-50);
-    border-radius: 5px;
-
-    @media screen and (min-width: 720px) {
-        margin-right: 400px;
-    }
-`
-
-const Label = styled.label`
-    width: 195px;
-    padding: 5px;
-    font-size: 14px;
-`
 
 export default SearchForm
