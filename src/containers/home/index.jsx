@@ -7,9 +7,10 @@ import useFavoriteTaskData from "../../hooks/useFavoriteTaskData"
 function Home() {
     const [listTask, setListTask] = useTaskData()
     const [listFavoriteTask, setListFavoriteTask] = useFavoriteTaskData()
+
     let titleContainer = 'Novas Tarefas'
     let favoriteTitleContainer = 'Favoritos'
-
+    
     if (!listTask.length) {
         titleContainer = 'Nenhuma tarefa neste campo!'
     }

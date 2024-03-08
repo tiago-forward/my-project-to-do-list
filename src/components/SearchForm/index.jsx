@@ -1,15 +1,13 @@
 import { Form, DivSearch, Input, Button, DivAddTask, Label, DivSelector, InputFavorite, LabelFavorite } from "./styles";
 import { useRef, useState } from "react"
 import SelectionBar from "./SelectionBar";
-import styled from "styled-components";
 
 function SearchForm({ listTask, setListTask, listFavoriteTask, setListFavoriteTask }) {
 
-    // const [task, setTask] = useState("")
     const [searchTerm, setSearchTerm] = useState("")
     const inputAddTask = useRef(null)
-    const [selectFavorite, setSelectFavorite] = useState(null)
     const [selectedOptions, setSelectedOptions] = useState([])
+    const [isFavorite, setIsFavorite] = useState(false)
 
     const handleSubmit = (event) => {
         event.preventDefault()
@@ -20,20 +18,7 @@ function SearchForm({ listTask, setListTask, listFavoriteTask, setListFavoriteTa
     }
 
     const handleCheckboxChange = (event) => {
-        setSelectFavorite(event.target.checked)
-        if (!selectFavorite){
-            console.log('true')
-        } else {
-            console.log('false')
-        }
-    }
-
-    const selectHowFavorite = () => {
-        if (selectFavorite) {
-            console.log("O checkbox está marcado! Faça algo aqui.");
-        } else {
-            console.log("O checkbox não está marcado. Faça outra coisa aqui.");
-        }
+        setIsFavorite(event.target.checked)
     }
 
     const addTask = (event) => {
@@ -45,7 +30,11 @@ function SearchForm({ listTask, setListTask, listFavoriteTask, setListFavoriteTa
             isCompleted: false
         }
 
-        setListTask([...listTask, newTask])
+        if (isFavorite) {
+            setListFavoriteTask(listItem => [...listItem, newTask]);
+        } else {
+            setListTask([...listTask, newTask])
+        }
 
         inputAddTask.current.value = ''
     }
@@ -75,16 +64,11 @@ function SearchForm({ listTask, setListTask, listFavoriteTask, setListFavoriteTa
                     onClick={addTask}>
                     <img src="../../public/clipboard-plus.svg" width="15px" height="10px" alt="Icone de adicionar tarefa" />
                 </Button>
-                {/* <Button
-                    onClick={addTask}>
-                    <img src="../../src/assets/estrela.png" width="25px" height="20px" alt="Icone de adicionar tarefa" />
-                    Favority
-                </Button> */}
             </DivAddTask>
             <DivSelector>
                 <SelectionBar setSelectedOptions={setSelectedOptions} />
                 <InputFavorite onChange={handleCheckboxChange} type="checkbox" name="favority" id="favority" />
-                <LabelFavorite htmlFor="favority">Adicionar a lista de Favoritos</LabelFavorite>
+                <LabelFavorite htmlFor="favority">Marcar tarefa como favorito</LabelFavorite>
             </DivSelector>
         </Form>
     )
