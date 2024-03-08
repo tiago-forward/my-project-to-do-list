@@ -23,8 +23,8 @@ function TaskCard({ task, listTask, setListTask, listFavoriteTask, setListFavori
             <TaskTitle>
                 <Title>{task.title}</Title>
                 <ButtonStar 
-                onClick={addFavoriteTask} >
-                <img src="https://cdn-icons-png.flaticon.com/128/616/616489.png" width={20} alt="Icone de estrela" /></ButtonStar>
+                    onClick={addFavoriteTask}>
+                    <img src="https://cdn-icons-png.flaticon.com/128/616/616489.png" width={20} alt="Icone de estrela" /></ButtonStar>
             </TaskTitle>
             {/* <Categories>
                 <Span>Curso</Span>

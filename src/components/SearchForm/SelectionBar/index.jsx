@@ -1,13 +1,9 @@
-// import styled from "styled-components";
-import { useState } from "react";
 import Select from "react-select";
 import makeAnimated from "react-select/animated"
-// import colors from "react-select";
 
 const animatedComponents = makeAnimated();
 
 function SelectionBar(setSelectedOptions) {
-
 
     const options = [
         { value: 'curso', label: 'Curso' },

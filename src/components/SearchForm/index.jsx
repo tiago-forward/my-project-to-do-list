@@ -31,7 +31,7 @@ function SearchForm({ listTask, setListTask, listFavoriteTask, setListFavoriteTa
         }
 
         if (isFavorite) {
-            setListFavoriteTask(listItem => [...listItem, newTask]);
+            setListFavoriteTask([...listFavoriteTask, newTask]);
         } else {
             setListTask([...listTask, newTask])
         }
@@ -67,7 +67,11 @@ function SearchForm({ listTask, setListTask, listFavoriteTask, setListFavoriteTa
             </DivAddTask>
             <DivSelector>
                 <SelectionBar setSelectedOptions={setSelectedOptions} />
-                <InputFavorite onChange={handleCheckboxChange} type="checkbox" name="favority" id="favority" />
+                <InputFavorite 
+                    onChange={handleCheckboxChange} 
+                    type="checkbox" 
+                    name="favority" 
+                    id="favority" />
                 <LabelFavorite htmlFor="favority">Marcar tarefa como favorito</LabelFavorite>
             </DivSelector>
         </Form>
