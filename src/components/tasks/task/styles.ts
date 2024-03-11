@@ -32,6 +32,7 @@ export const Span = styled.span`
     color: var(--java-800);
     font-size: 14px;
     font-weight: 500;
+    text-transform: capitalize;
     box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 1px, rgba(6, 24, 44, 0.65) 0px 3px 5px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
 `
 

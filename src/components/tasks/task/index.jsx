@@ -8,7 +8,6 @@ function TaskCard({ task, listTask, setListTask, listFavoriteTask, setListFavori
         } else {
             setListTask(listTask.filter(item => item.id !== task.id))
         }
-        console.log(listTask)
     }
 
     const addFavoriteTask = () => {
@@ -26,10 +25,9 @@ function TaskCard({ task, listTask, setListTask, listFavoriteTask, setListFavori
                     onClick={addFavoriteTask}>
                     <img src="https://cdn-icons-png.flaticon.com/128/616/616489.png" width={20} alt="Icone de estrela" /></ButtonStar>
             </TaskTitle>
-            {/* <Categories>
-                <Span>Curso</Span>
-                <Span>Estudos</Span>
-            </Categories> */}
+            <Categories>
+                <Span>{task.categorie}</Span>
+            </Categories>
             <Buttons>
                 {/* <Button>Renomear</Button> */}
                 <Button onClick={deleteTask}>Excluir</Button>

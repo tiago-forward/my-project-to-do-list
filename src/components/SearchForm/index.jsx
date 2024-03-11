@@ -6,8 +6,8 @@ function SearchForm({ listTask, setListTask, listFavoriteTask, setListFavoriteTa
 
     const [searchTerm, setSearchTerm] = useState("")
     const inputAddTask = useRef(null)
-    const [selectedOptions, setSelectedOptions] = useState([])
     const [isFavorite, setIsFavorite] = useState(false)
+    const [dataCategories, setDataCategories] = useState()
 
     const handleSubmit = (event) => {
         event.preventDefault()
@@ -21,15 +21,20 @@ function SearchForm({ listTask, setListTask, listFavoriteTask, setListFavoriteTa
         setIsFavorite(event.target.checked)
     }
 
-    const addTask = (event) => {
+    const optionCategorie = (event) => {
+        setDataCategories(event.value)
+    }
+
+    const addTask = () => {
         if (inputAddTask.current.value === '') return alert('Escreva uma tarefa!')
+        if (dataCategories === undefined) return alert('Escolha ou escreva uma nova categoria!')
         const newTask = {
             id: Math.random(),
             title: inputAddTask.current.value,
-            categorie: '',
+            categorie: dataCategories,
             isCompleted: false
         }
-
+        console.log(dataCategories)
         if (isFavorite) {
             setListFavoriteTask([...listFavoriteTask, newTask]);
         } else {
@@ -66,7 +71,8 @@ function SearchForm({ listTask, setListTask, listFavoriteTask, setListFavoriteTa
                 </Button>
             </DivAddTask>
             <DivSelector>
-                <SelectionBar setSelectedOptions={setSelectedOptions} />
+                <SelectionBar
+                    optionCategorie={optionCategorie} />
                 <InputFavorite 
                     onChange={handleCheckboxChange} 
                     type="checkbox" 

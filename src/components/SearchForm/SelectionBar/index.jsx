@@ -1,25 +1,28 @@
 import Select from "react-select";
+import CreatableSelect from 'react-select/creatable';
 import makeAnimated from "react-select/animated"
 
 const animatedComponents = makeAnimated();
 
-function SelectionBar(setSelectedOptions) {
+function SelectionBar({ optionCategorie }) {
 
     const options = [
-        { value: 'curso', label: 'Curso' },
-        { value: 'estudos', label: 'Estudos' },
+        { value: 'estudos', label: 'Estudo' },
         { value: 'lazer', label: 'Lazer' },
         { value: 'trabalho', label: 'Trabalho' },
         { value: 'desafio', label: 'Desafio' },
         { value: 'família', label: 'Família' },
         { value: 'relacionamento', label: 'Relacionamento' },
-        { value: 'amigos', label: 'Amigos' }
+        { value: 'amigos', label: 'Amigos' },
+        { value: 'metas', label: 'Metas' },
+        { value: 'rotina', label: 'Rotina' }
     ]
 
     return(
         <div style={{ marginTop: 15, width: 350 }}>
-            <Select
-                onChange={(item) => setSelectedOptions(item)}
+            <CreatableSelect
+                closeMenuOnSelect={true}
+                onChange={optionCategorie}
                 styles={{
                     placeholder: (baseStyles, State) => ({
                         ...baseStyles,
@@ -31,9 +34,8 @@ function SelectionBar(setSelectedOptions) {
                         backgroundColor: "var(--java-50)"
                     })
                 }}
-                placeholder={'Seleciones as categorias'}
+                placeholder={'Selecione ou escreva uma categoria'}
                 components={animatedComponents}
-                isMulti
                 noOptionsMessage={() => 'Não há esta opção'}
                 options={options} />
         </div>
