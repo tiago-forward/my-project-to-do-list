@@ -1,4 +1,6 @@
 import { Form, DivSearch, Input, Button, DivAddTask, Label, DivSelector, InputFavorite, LabelFavorite } from "./styles";
+import search from '../../../public/search.svg'
+import clipboardplus from '../../../public/clipboardplus.svg'
 import { useRef, useState } from "react"
 import SelectionBar from "./SelectionBar";
 
@@ -54,7 +56,7 @@ function SearchForm({ listTask, setListTask, listFavoriteTask, setListFavoriteTa
                     placeholder="Localizar tarefa"
                     onChange={(event) => handleInputChange(event)} />
                 <Button>
-                    <img src="../../public/search.svg" alt="Icone de localizar tarefa" width="25px" height="10px" />
+                    <img src={search} alt="Icone de localizar tarefa" width="25px" height="10px" />
                 </Button>
             </DivSearch>
             <DivAddTask>
@@ -67,7 +69,7 @@ function SearchForm({ listTask, setListTask, listFavoriteTask, setListFavoriteTa
                     ref={inputAddTask} />
                 <Button
                     onClick={addTask}>
-                    <img src="../../public/clipboard-plus.svg" width="15px" height="10px" alt="Icone de adicionar tarefa" />
+                    <img src={clipboardplus} width="15px" height="10px" alt="Icone de adicionar tarefa" />
                 </Button>
             </DivAddTask>
             <DivSelector>
