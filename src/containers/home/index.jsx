@@ -1,6 +1,7 @@
 import { Main, MainTitle } from "./styles"
 import SearchForm from "../../components/SearchForm"
 import TaskContainer from "../../components/tasks/container"
+import FooterContainer from "../../components/Footer/inde"
 import useTaskData from "../../hooks/useTaskData"
 import useFavoriteTaskData from "../../hooks/useFavoriteTaskData"
 
@@ -43,6 +44,7 @@ function Home() {
                     setListFavoriteTask={setListFavoriteTask} />
 
             </Main>
+            <FooterContainer/>
         </>
     )
 }
