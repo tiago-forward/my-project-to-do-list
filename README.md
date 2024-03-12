@@ -42,8 +42,6 @@ Desafio quase concluído. 👌👨‍💻
 
 ## Objetivo
 
-Com base nos conceitos adquiridos nos cursos Dev Quest, tinha como objetivo aprender a manipular e a utilizar da melhor forma o display grid.
-
 <li>Etapa 1 – Nesta etapa, inicializei meu código com npm create vite@latest e criei minha estrutura de pastas inicial!
 
     1 – Inicializando projeto; ✅
