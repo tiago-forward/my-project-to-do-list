@@ -6,7 +6,7 @@ import SelectionBar from "./SelectionBar";
 
 function SearchForm({ listTask, setListTask, listFavoriteTask, setListFavoriteTask }) {
 
-    const [searchTerm, setSearchTerm] = useState("")
+    const [searchTerm, setSearchTerm] = useState('')
     const inputAddTask = useRef(null)
     const [isFavorite, setIsFavorite] = useState(false)
     const [dataCategories, setDataCategories] = useState()
@@ -16,6 +16,7 @@ function SearchForm({ listTask, setListTask, listFavoriteTask, setListFavoriteTa
     }
 
     const handleInputChange = (event) => {
+        console.log(searchTerm)
         setSearchTerm(event.target.value);
     }
 
@@ -30,13 +31,14 @@ function SearchForm({ listTask, setListTask, listFavoriteTask, setListFavoriteTa
     const addTask = () => {
         if (inputAddTask.current.value === '') return alert('Escreva uma tarefa!')
         if (dataCategories === undefined) return alert('Escolha ou escreva uma nova categoria!')
+
         const newTask = {
             id: Math.random(),
             title: inputAddTask.current.value,
             categorie: dataCategories,
             isCompleted: false
         }
-        console.log(dataCategories)
+
         if (isFavorite) {
             setListFavoriteTask([...listFavoriteTask, newTask]);
         } else {
@@ -54,6 +56,7 @@ function SearchForm({ listTask, setListTask, listFavoriteTask, setListFavoriteTa
                     name="searchTask"
                     id="searchTask"
                     placeholder="Localizar tarefa"
+                    value={searchTerm}
                     onChange={(event) => handleInputChange(event)} />
                 <Button>
                     <img src={search} alt="Icone de localizar tarefa" width="25px" height="10px" />

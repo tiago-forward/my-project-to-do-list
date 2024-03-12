@@ -3,6 +3,11 @@ import styled from "styled-components"
 export const Form = styled.form`
     display: flex;
     flex-direction: column;
+
+    @media screen and (min-width: 610px) {
+        margin: 0 auto;
+        max-width: 570px;
+    }
 `
 
 export const DivSearch = styled.div`
@@ -12,8 +17,8 @@ export const DivSearch = styled.div`
     border-radius: 5px;
     margin-bottom: 15px;
 
-    @media screen and (min-width: 720px) {
-        margin-left: 400px;
+    @media screen and (min-width: 610px) {
+        max-width: 570px;
     }
 `
 
@@ -46,8 +51,8 @@ export const DivAddTask = styled.div`
     background-color: var(--java-50);
     border-radius: 5px;
 
-    @media screen and (min-width: 720px) {
-        margin-right: 400px;
+    @media screen and (min-width: 610px) {
+        max-width: 570px;
     }
 `
 

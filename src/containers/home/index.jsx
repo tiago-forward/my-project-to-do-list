@@ -9,11 +9,11 @@ function Home() {
     const [listTask, setListTask] = useTaskData()
     const [listFavoriteTask, setListFavoriteTask] = useFavoriteTaskData()
 
-    let titleContainer = 'Novas Tarefas'
-    let favoriteTitleContainer = 'Favoritos'
+    let titleContainer = `Novas Tarefas`
+    let favoriteTitleContainer = `Favoritos`
     
     if (!listTask.length) {
-        titleContainer = 'Nenhuma tarefa neste campo!'
+        titleContainer = `Nenhuma tarefa neste campo!`
     }
 
     return (

@@ -26,7 +26,7 @@ function SelectionBar({ optionCategorie }) {
                 styles={{
                     placeholder: (baseStyles, State) => ({
                         ...baseStyles,
-                        fontSize: 14,
+                        fontSize: 13,
                     }),
                     menuList: (baseStyles) => ({
                         ...baseStyles,
