@@ -27,7 +27,7 @@ Para solucionar esse problema, foi importado o estado do useTaskData apenas no c
 
 <br/>
 
-<li>2 – Outro grande desafio foi ao clicar no butão de estrela da tarefa, mandar o componente inteiro para um novo container de tarefas como favoritas, e também permanecer funcionando o botão de excluir tarefa. Tive que adicionar várias condições ao adicionar e excluir o componente, e implementei também uma nova filtragem após essas condições para atualizar as minhas duas listas de tarefas.
+<li>2 – Outro grande desafio foi ao clicar no botão de estrela da tarefa, mandar o componente inteiro para um novo container de tarefas como favoritas, e também permanecer funcionando o botão de excluir tarefa. Tive que adicionar várias condições ao adicionar e excluir o componente, e implementei também uma nova filtragem após essas condições para atualizar as minhas duas listas de tarefas.
 
 <br/>
 
