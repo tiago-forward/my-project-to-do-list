@@ -1,4 +1,5 @@
-import { TaskCardContainer, TaskTitle, Title, Categories, Span, Buttons, Button, ButtonStar } from "./styles.ts" 
+import { TaskCardContainer, TaskTitle, Title, Categories, Span, Buttons, Button, ButtonStar } from "./styles.ts"
+import star from '../../../../public/star.png' 
 
 function TaskCard({ task, listTask, setListTask, listFavoriteTask, setListFavoriteTask }) {
 
@@ -23,7 +24,7 @@ function TaskCard({ task, listTask, setListTask, listFavoriteTask, setListFavori
                 <Title>{task.title}</Title>
                 <ButtonStar 
                     onClick={addFavoriteTask}>
-                    <img src="https://cdn-icons-png.flaticon.com/128/616/616489.png" width={20} alt="Icone de estrela" /></ButtonStar>
+                    <img src={star} width={20} alt="Icone para adicionar a tarefa como favorito" /></ButtonStar>
             </TaskTitle>
             <Categories>
                 <Span>{task.categorie}</Span>
