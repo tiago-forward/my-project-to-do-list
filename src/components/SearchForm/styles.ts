@@ -38,11 +38,14 @@ export const Button = styled.button`
     -moz-border-radius: 3px;
     border-radius: 3px;
     background-color: var(--java-50);
+    & img {
+        width: 35px;
+    }
     &:hover {
-        background-color: var(--java-50);
+        background-color: var(--java-100);
     }
     &:active {
-        background-color: var(--java-100);
+        background-color: var(--java-200);
     }
 `
 
