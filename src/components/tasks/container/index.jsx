@@ -1,10 +1,12 @@
 import { Container, Title } from "./styles"
 import TaskCard from "../task";
 
-function TaskContainer({titleContainer, listTask, setListTask, listFavoriteTask, setListFavoriteTask}) {
+function TaskContainer({titleContainer, listTask, setListTask, listFavoriteTask, setListFavoriteTask, valorDeSearch}) {
     
-    const tasksToShow = titleContainer === "Favoritos" ? listFavoriteTask : listTask;
+    let tasksToShow = titleContainer === "Favoritos" ? listFavoriteTask : listTask;
 
+    tasksToShow = tasksToShow.filter(item => item.title.toLowerCase().includes(valorDeSearch.toLowerCase()))
+    
     return (
         <Container>
             <Title>{titleContainer}</Title>

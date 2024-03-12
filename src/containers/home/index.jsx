@@ -8,12 +8,17 @@ import useFavoriteTaskData from "../../hooks/useFavoriteTaskData"
 function Home() {
     const [listTask, setListTask] = useTaskData()
     const [listFavoriteTask, setListFavoriteTask] = useFavoriteTaskData()
+    const [valorDeSearch, setValorDeSearch] = useFavoriteTaskData()
 
     let titleContainer = `Novas Tarefas`
     let favoriteTitleContainer = `Favoritos`
     
     if (!listTask.length) {
         titleContainer = `Nenhuma tarefa neste campo!`
+    }
+
+    const valorDeBusca = (search) => {
+        setValorDeSearch(search)
     }
 
     return (
@@ -25,7 +30,8 @@ function Home() {
                     listTask={listTask} 
                     setListTask={setListTask} 
                     listFavoriteTask={listFavoriteTask} 
-                    setListFavoriteTask={setListFavoriteTask} />
+                    setListFavoriteTask={setListFavoriteTask}
+                    valorDeBusca={valorDeBusca} />
 
                 {listFavoriteTask.length > 0 && (
                     <TaskContainer 
@@ -33,7 +39,8 @@ function Home() {
                         listTask={listFavoriteTask} 
                         setListTask={setListTask} 
                         listFavoriteTask={listFavoriteTask} 
-                        setListFavoriteTask={setListFavoriteTask} />
+                        setListFavoriteTask={setListFavoriteTask}
+                        valorDeSearch={valorDeSearch} />
                 )}
 
                 <TaskContainer
@@ -41,8 +48,8 @@ function Home() {
                     listTask={listTask}
                     setListTask={setListTask}
                     listFavoriteTask={listFavoriteTask}
-                    setListFavoriteTask={setListFavoriteTask} />
-
+                    setListFavoriteTask={setListFavoriteTask}
+                    valorDeSearch={valorDeSearch} />
             </Main>
             <FooterContainer/>
         </>

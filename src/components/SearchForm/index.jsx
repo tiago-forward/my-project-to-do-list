@@ -4,20 +4,17 @@ import clipboardplus from '../../../public/clipboardplus.svg'
 import { useRef, useState } from "react"
 import SelectionBar from "./SelectionBar";
 
-function SearchForm({ listTask, setListTask, listFavoriteTask, setListFavoriteTask }) {
+function SearchForm({ listTask, setListTask, listFavoriteTask, setListFavoriteTask, valorDeBusca }) {
 
     const [searchTerm, setSearchTerm] = useState('')
     const inputAddTask = useRef(null)
     const [isFavorite, setIsFavorite] = useState(false)
     const [dataCategories, setDataCategories] = useState()
 
+    valorDeBusca(searchTerm)
+
     const handleSubmit = (event) => {
         event.preventDefault()
-    }
-
-    const handleInputChange = (event) => {
-        console.log(searchTerm)
-        setSearchTerm(event.target.value);
     }
 
     const handleCheckboxChange = (event) => {
@@ -57,7 +54,7 @@ function SearchForm({ listTask, setListTask, listFavoriteTask, setListFavoriteTa
                     id="searchTask"
                     placeholder="Localizar tarefa"
                     value={searchTerm}
-                    onChange={(event) => handleInputChange(event)} />
+                    onChange={(event) => setSearchTerm(event.target.value)} />
                 <Button>
                     <img src={search} alt="Icone de localizar tarefa" width="25px" height="10px" />
                 </Button>
@@ -86,6 +83,7 @@ function SearchForm({ listTask, setListTask, listFavoriteTask, setListFavoriteTa
                 <LabelFavorite htmlFor="favority">Marcar tarefa como favorito</LabelFavorite>
             </DivSelector>
         </Form>
+
     )
 }
 
