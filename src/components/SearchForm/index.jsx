@@ -8,10 +8,13 @@ function SearchForm({ listTask, setListTask, listFavoriteTask, setListFavoriteTa
 
     const [searchTerm, setSearchTerm] = useState('')
     const inputAddTask = useRef(null)
+    const [key, setKey] = useState()
     const [isFavorite, setIsFavorite] = useState(false)
     const [dataCategories, setDataCategories] = useState()
 
     valorDeBusca(searchTerm)
+
+    console.log(key)
 
     const handleSubmit = (event) => {
         event.preventDefault()
@@ -62,6 +65,7 @@ function SearchForm({ listTask, setListTask, listFavoriteTask, setListFavoriteTa
             <DivAddTask>
                 <Label htmlFor="task">Adicionar tarefa:</Label>
                 <Input
+                    onKeyUp={(event) => setKey(event.key)}
                     type="text"
                     name="task"
                     id="task"
