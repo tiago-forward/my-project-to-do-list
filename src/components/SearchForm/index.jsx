@@ -14,8 +14,6 @@ function SearchForm({ listTask, setListTask, listFavoriteTask, setListFavoriteTa
 
     valorDeBusca(searchTerm)
 
-    console.log(key)
-
     const handleSubmit = (event) => {
         event.preventDefault()
     }
@@ -28,7 +26,17 @@ function SearchForm({ listTask, setListTask, listFavoriteTask, setListFavoriteTa
         setDataCategories(event.value)
     }
 
-    const addTask = () => {
+    const handleButtonPress = () => {
+        addTask()
+    }
+
+    const handleKeyPress = (event) =>{
+        if (event.key === 'Enter'){
+            addTask()
+        }
+    }
+
+    function addTask(){
         if (inputAddTask.current.value === '') return alert('Escreva uma tarefa!')
         if (dataCategories === undefined) return alert('Escolha ou escreva uma nova categoria!')
 
@@ -65,14 +73,14 @@ function SearchForm({ listTask, setListTask, listFavoriteTask, setListFavoriteTa
             <DivAddTask>
                 <Label htmlFor="task">Adicionar tarefa:</Label>
                 <Input
-                    onKeyUp={(event) => setKey(event.key)}
+                    onKeyUp={handleKeyPress}
                     type="text"
                     name="task"
                     id="task"
                     placeholder="Escreva uma nova tarefa"
                     ref={inputAddTask} />
                 <Button
-                    onClick={addTask}>
+                    onClick={handleButtonPress}>
                     <img src={clipboardplus} width="15px" height="10px" alt="Icone de adicionar tarefa" />
                 </Button>
             </DivAddTask>
