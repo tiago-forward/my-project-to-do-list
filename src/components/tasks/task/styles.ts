@@ -75,3 +75,21 @@ export const ButtonStar = styled.button`
         background-color: var(--java-100);
     }
 `
+
+export const ButtonStarActive = styled.button`
+    cursor: pointer;
+    border: 2px solid var(--java-500);
+    padding: 2px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 50%;
+    background-color: var(--yellow);
+    transition: 0.2s ease;
+    &:hover {
+        background-color: var(--java-50);
+    }
+    &:active {
+        border: 2px solid var(--yellow);
+        background-color: var(--java-100);
+    }
+`
