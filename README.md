@@ -36,7 +36,7 @@ Para solucionar esse problema, foi importado o estado do useTaskData apenas no c
 
 ## Status
 
-Desafio quase concluído. 👌👨‍💻
+Projeto em desenvolvimento. 👌👨‍💻
 
 ![Layout do projeto](src/assets/gif/GIF-project.gif)
 
