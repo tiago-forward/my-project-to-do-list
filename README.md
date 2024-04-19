@@ -9,6 +9,8 @@
 <li><a href="#objetivo">Objetivo</a></li>
 <li><a href="#curiosidade">Curiosidade</a></li>
 <li><a href="#tecnologias">Tecnologias</a></li>
+<li><a href="#instalando-e-executando-o-projeto">Instalação</a></li>
+<li><a href="#acessando-o-site">Acessando o site</a></li>
 </ul>
 
 ## Sobre
@@ -36,7 +38,7 @@ Para solucionar esse problema, foi importado o estado do useTaskData apenas no c
 
 ## Status
 
-Desafio quase concluído. 👌👨‍💻
+Desafio concluído. 👌👨‍💻
 
 ![Layout do projeto](src/assets/gif/GIF-project.gif)
 
@@ -72,7 +74,6 @@ Desafio quase concluído. 👌👨‍💻
     7 – Adicionado funcionalidade de localizar tarefa; ✅
     8 – Adicionado funcionalidade de ao clicar na estrela da tarefa, além de adicionar a lista de favoritos, também mudar a cor; ✅
     9 – Adicionado funcionalidade de ao pressionar a tecla 'Enter', adicionar a tarefa. ✅
-    10 – Adicionar funcionalidade de renomear tarefa. ❌
 
 ## Curiosidade
 
@@ -87,3 +88,42 @@ Está sendo muito satisfatório, cada funcionalidade nova que aprendo ou depois 
 <li>React</li>
 <li>GIT</li>
 </ul>
+
+## Instalando e executando o projeto
+
+1º Clone o repositório do projeto em HTTPS ou SSH com sua SSH key
+
+HTTPS
+```bash
+  git clone https://github.com/tiago-forward/my-project-to-do-list.git
+```
+
+SSH
+```bash
+  git clone git@github.com:tiago-forward/my-project-to-do-list.git
+```
+
+Em sua máquina, crie uma nova pasta e execute o git, e em seguida cole um dos links acima.
+<br>
+
+2º Entre no diretório do projeto na qual foi clonado
+
+```bash
+  cd my-project-to-do-list
+```
+
+3º Execute o comando abaixo para instalar todas as dependências utilizadas
+
+```bash
+  npm install
+```
+
+4º Inicialize a aplicação para ver o código funcionando na web
+
+```bash
+  npm run dev
+```
+
+## Acessando o site
+
+Para acessar meu projeto online, acesse esse link : <a href="https://desafio-react-avancado-pokedex.vercel.app/" target="_blank">Desafio React Avançado | Projeto Pokédex</a>
