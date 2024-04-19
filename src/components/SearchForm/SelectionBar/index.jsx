@@ -1,11 +1,9 @@
-import Select from "react-select";
 import CreatableSelect from 'react-select/creatable';
 import makeAnimated from "react-select/animated"
 
 const animatedComponents = makeAnimated();
 
 function SelectionBar({ optionCategorie }) {
-
     const options = [
         { value: 'estudos', label: 'Estudo' },
         { value: 'lazer', label: 'Lazer' },
@@ -24,7 +22,7 @@ function SelectionBar({ optionCategorie }) {
                 closeMenuOnSelect={true}
                 onChange={optionCategorie}
                 styles={{
-                    placeholder: (baseStyles, State) => ({
+                    placeholder: (baseStyles) => ({
                         ...baseStyles,
                         fontSize: 13,
                     }),

@@ -1,11 +1,11 @@
 import { Container, Title } from "./styles"
+
 import TaskCard from "../task";
 
-function TaskContainer({titleContainer, listTask, setListTask, listFavoriteTask, setListFavoriteTask, valorDeSearch}) {
-    
+function TaskContainer({titleContainer, listTask, setListTask, listFavoriteTask, setListFavoriteTask, valueSearch}) {
     let tasksToShow = titleContainer === "Favoritos" ? listFavoriteTask : listTask;
 
-    tasksToShow = tasksToShow.filter(item => item.title.toLowerCase().includes(valorDeSearch.toLowerCase()))
+    tasksToShow = tasksToShow.filter(item => item.title.toLowerCase().includes(valueSearch.toLowerCase()))
     
     return (
         <Container>

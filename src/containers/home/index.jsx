@@ -1,14 +1,16 @@
 import { Main, MainTitle } from "./styles"
+
 import SearchForm from "../../components/SearchForm"
 import TaskContainer from "../../components/tasks/container"
 import FooterContainer from "../../components/Footer/inde"
+
 import useTaskData from "../../hooks/useTaskData"
 import useFavoriteTaskData from "../../hooks/useFavoriteTaskData"
 
 function Home() {
     const [listTask, setListTask] = useTaskData()
     const [listFavoriteTask, setListFavoriteTask] = useFavoriteTaskData()
-    const [valorDeSearch, setValorDeSearch] = useFavoriteTaskData()
+    const [valueSearch, setValueSearch] = useFavoriteTaskData()
 
     let titleContainer = `Novas Tarefas`
     let favoriteTitleContainer = `Favoritos`
@@ -17,8 +19,8 @@ function Home() {
         titleContainer = `Nenhuma tarefa neste campo!`
     }
 
-    const valorDeBusca = (search) => {
-        setValorDeSearch(search)
+    const handleValueSearch = (search) => {
+        setValueSearch(search)
     }
 
     return (
@@ -31,7 +33,7 @@ function Home() {
                     setListTask={setListTask} 
                     listFavoriteTask={listFavoriteTask} 
                     setListFavoriteTask={setListFavoriteTask}
-                    valorDeBusca={valorDeBusca} />
+                    handleValueSearch={handleValueSearch} />
 
                 {listFavoriteTask.length > 0 && (
                     <TaskContainer 
@@ -40,7 +42,7 @@ function Home() {
                         setListTask={setListTask} 
                         listFavoriteTask={listFavoriteTask} 
                         setListFavoriteTask={setListFavoriteTask}
-                        valorDeSearch={valorDeSearch} />
+                        valueSearch={valueSearch} />
                 )}
 
                 <TaskContainer
@@ -49,7 +51,7 @@ function Home() {
                     setListTask={setListTask}
                     listFavoriteTask={listFavoriteTask}
                     setListFavoriteTask={setListFavoriteTask}
-                    valorDeSearch={valorDeSearch} />
+                    valueSearch={valueSearch} />
             </Main>
             <FooterContainer/>
         </>

@@ -1,5 +1,6 @@
 import { TaskCardContainer, TaskTitle, Title, Categories, Span, Buttons, Button, ButtonStar, ButtonStarActive } from "./styles.ts"
 import star from '../../../../public/star.png'
+
 import { useState, useEffect } from "react"
 
 function TaskCard({ task, listTask, setListTask, listFavoriteTask, setListFavoriteTask }) {
@@ -16,7 +17,6 @@ function TaskCard({ task, listTask, setListTask, listFavoriteTask, setListFavori
             setListTask(listTask.filter(item => item.id !== task.id))
         }
     }
-
 
     const addFavoriteTask = () => {
         if (!listFavoriteTask.some(item => item.id === task.id)) {
